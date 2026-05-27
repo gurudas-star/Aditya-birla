@@ -1,0 +1,720 @@
+/* IKONTEL Omnichannel Dashboard Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #0b0f19;
+    color: #f8fafc;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+    background: rgba(15, 23, 42, 0.65);
+    border-color: rgba(6, 182, 212, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* Brand Gradients */
+.bg-brand-gradient {
+    background: linear-gradient(135deg, #4f46e5 0%, #1e1b4b 100%);
+}
+
+.bg-gold-gradient {
+    background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+}
+
+.bg-dark-gradient {
+    background: linear-gradient(180deg, #0f172a 0%, #05070c 100%);
+}
+
+.text-gold-gradient {
+    background: linear-gradient(135deg, #22d3ee 0%, #0d9488 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Scanner Animation for KYC OCR */
+@keyframes scan-beam {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+}
+
+.scanner-line {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #06b6d4, #4f46e5, #06b6d4, transparent);
+    box-shadow: 0 0 15px #06b6d4;
+    animation: scan-beam 2.5s infinite linear;
+}
+
+/* Custom Pulsing Keyframe for Live Calls */
+@keyframes call-pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+.active-call-pulse {
+    animation: call-pulse 2s infinite;
+}
+
+/* Flow Line Animation for Journey Builder */
+@keyframes dash-flow {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+.animated-flow-line {
+    stroke-dasharray: 8;
+    animation: dash-flow 2s infinite linear;
+}
+
+/* Tooltip & Dropdown adjustments */
+.custom-tooltip {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
+    color: #f8fafc !important;
+}
+
+/* Phone Mockup Styling */
+.phone-frame {
+    border: 12px solid #1e293b;
+    border-radius: 36px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: #0f172a;
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 18px;
+    background: #1e293b;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 50;
+}
+
+/* Shimmer Loader */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer-bg {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Kanban column scroll */
+.kanban-column {
+    max-height: calc(100vh - 280px);
+    overflow-y: auto;
+}
+
+/* ==================== Light Theme Override System ==================== */
+html.light {
+    background-color: #f0f4f8;
+}
+
+html.light body {
+    background-color: #f0f4f8;
+    color: #1e293b;
+}
+
+/* Master Layout Pane Overrides */
+html.light .bg-slate-950 {
+    background-color: #ffffff !important;
+}
+
+html.light .bg-slate-900 {
+    background-color: #f8fafc !important;
+}
+
+html.light #main-content-pane {
+    background-color: #f0f4f8 !important;
+}
+
+html.light .bg-[#0b0f19] {
+    background-color: #f0f4f8 !important;
+}
+
+html.light .bg-slate-900/20 {
+    background-color: rgba(240, 244, 248, 0.4) !important;
+}
+
+html.light .bg-slate-900/50 {
+    background-color: rgba(240, 244, 248, 0.7) !important;
+}
+
+html.light .bg-slate-950/50 {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+html.light .bg-slate-950/80 {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.light .bg-slate-950/40 {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Border Systems */
+html.light .border-slate-800,
+html.light .border-slate-900,
+html.light .border-slate-950,
+html.light .border-indigo-800/40,
+html.light .border-slate-800/80,
+html.light .border-slate-800/40,
+html.light .border-indigo-950 {
+    border-color: #e2e8f0 !important;
+}
+
+/* Premium Elevating Glass Panels */
+html.light .glass-panel {
+    background-color: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.02), 0 4px 12px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light .glass-panel-hover:hover {
+    background-color: #ffffff !important;
+    border-color: rgba(6, 182, 212, 0.25) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -5px rgba(6, 182, 212, 0.08), 0 8px 10px -6px rgba(6, 182, 212, 0.04) !important;
+}
+
+/* Typography Hierarchy & Contrast */
+html.light .text-white,
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light .text-slate-100 {
+    color: #0f172a !important;
+}
+
+html.light .text-slate-200,
+html.light .text-slate-300 {
+    color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+    color: #64748b !important;
+}
+
+html.light .text-slate-500 {
+    color: #94a3b8 !important;
+}
+
+/* Rebranded Premium Custom Color Tokens */
+html.light .text-cyan-400 {
+    color: #0891b2 !important;
+}
+html.light .text-teal-400 {
+    color: #0d9488 !important;
+}
+html.light .text-green-400 {
+    color: #16a34a !important;
+}
+html.light .text-red-400 {
+    color: #dc2626 !important;
+}
+
+/* Soft Premium Pastel Badges */
+html.light .bg-cyan-500/10 {
+    background-color: #ecfeff !important;
+    color: #0891b2 !important;
+    border-color: #cffafe !important;
+}
+html.light .bg-green-950,
+html.light .bg-green-500/10 {
+    background-color: #f0fdf4 !important;
+    color: #16a34a !important;
+    border-color: #bbf7d0 !important;
+}
+html.light .bg-red-950,
+html.light .bg-red-500/10 {
+    background-color: #fef2f2 !important;
+    color: #dc2626 !important;
+    border-color: #fecaca !important;
+}
+html.light .bg-cyan-950,
+html.light .bg-cyan-800/10 {
+    background-color: #ecfeff !important;
+    color: #0891b2 !important;
+    border-color: #cffafe !important;
+}
+html.light .bg-indigo-950,
+html.light .bg-indigo-500/10 {
+    background-color: #f0f4f8 !important;
+    color: #4f46e5 !important;
+    border-color: #dbeafe !important;
+}
+
+/* Gorgeous High-Contrast Split Sidebar Overrides (Stays Dark for Visual Impact!) */
+html.light #sidebar-container > div {
+    background-color: #030712 !important;
+    border-right: 1px solid #0f172a !important;
+}
+
+html.light #sidebar-container a[data-page] {
+    color: #94a3b8 !important;
+}
+
+html.light #sidebar-container a[data-page]:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.light #sidebar-container a.bg-brand-gradient {
+    background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%) !important;
+    color: #ffffff !important;
+    border-left: 4px solid #22d3ee !important;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.15) !important;
+}
+
+html.light #sidebar-container h1 {
+    color: #ffffff !important;
+}
+
+html.light #sidebar-container p {
+    color: #22d3ee !important;
+}
+
+html.light #sidebar-container #toggle-sidebar {
+    border-color: #1e293b !important;
+    color: #64748b !important;
+}
+
+html.light #sidebar-container #toggle-sidebar:hover {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+}
+
+html.light #sidebar-container .bg-slate-950/50 {
+    background-color: #020617 !important;
+    border-top: 1px solid #0f172a !important;
+}
+
+html.light #sidebar-container .text-teal-400 {
+    color: #22d3ee !important;
+}
+
+/* Top Navbar Overrides */
+html.light header {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02) !important;
+}
+
+html.light #global-search {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+html.light #global-search::placeholder {
+    color: #94a3b8 !important;
+}
+
+html.light #role-selector {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0891b2 !important;
+}
+
+html.light #theme-toggle,
+html.light #notification-bell {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #475569 !important;
+}
+
+html.light #theme-toggle:hover,
+html.light #notification-bell:hover {
+    background-color: rgba(15, 23, 42, 0.08) !important;
+    color: #0f172a !important;
+}
+
+html.light #notifications-panel {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light #btn-open-bot-sim {
+    background-color: #ecfeff !important;
+    color: #0891b2 !important;
+    border-color: #cffafe !important;
+}
+
+html.light #btn-open-bot-sim:hover {
+    background-color: #cffafe !important;
+}
+
+/* Form Controls & Inputs */
+html.light input,
+html.light select,
+html.light textarea {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+    border-color: #06b6d4 !important;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1) !important;
+    outline: none;
+}
+
+/* Cybernetic Cyan/Teal Brand Buttons */
+html.light button.bg-brand-gradient {
+    background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%) !important;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.15) !important;
+    color: #ffffff !important;
+}
+
+html.light button.bg-brand-gradient:hover {
+    background: linear-gradient(135deg, #0f766e 0%, #0891b2 100%) !important;
+}
+
+/* Grid & Dashboard Specific Overrides */
+html.light .w-10.h-10.bg-slate-900,
+html.light .w-8.h-8.bg-slate-900 {
+    background-color: #f1f5f9 !important;
+    border-color: #e2e8f0 !important;
+}
+
+html.light .w-8.h-8.bg-red-950,
+html.light .w-8.h-8.bg-green-950,
+html.light .w-8.h-8.bg-cyan-950 {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+html.light .bg-slate-900/30 {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+html.light .bg-slate-900/30:hover {
+    background-color: #f8fafc !important;
+}
+
+html.light .kanban-column {
+    background-color: #e2e8f0/40 !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* Chat Lab Simulator Overrides */
+html.light #simulator-drawer {
+    background-color: #ffffff !important;
+    border-left: 1px solid #e2e8f0 !important;
+    box-shadow: -10px 0 30px -5px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light #simulator-drawer h3,
+html.light #simulator-drawer h4 {
+    color: #0f172a !important;
+}
+
+html.light #simulator-drawer .bg-slate-900/50,
+html.light #simulator-drawer .bg-slate-950/80 {
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+html.light #simulator-drawer #whatsapp-message-box {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+html.light #simulator-drawer .bg-slate-800 {
+    background-color: #f1f5f9 !important;
+    color: #1e293b !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Phone Layout Frame Overrides */
+html.light .phone-frame {
+    background-color: #ffffff !important;
+    border: 12px solid #e2e8f0 !important;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .phone-notch {
+    background-color: #e2e8f0 !important;
+}
+
+html.light .phone-frame .bg-slate-950 {
+    background-color: #f8fafc !important;
+}
+
+html.light .phone-frame .bg-slate-900 {
+    background-color: #ffffff !important;
+    border-bottom-color: #e2e8f0 !important;
+}
+
+html.light #whatsapp-preview-body {
+    color: #1e293b !important;
+}
+
+/* ApexCharts Typography & Legends */
+html.light .apexcharts-text {
+    fill: #1e293b !important;
+}
+
+html.light .apexcharts-legend-text {
+    color: #1e293b !important;
+}
+
+/* ApexCharts Light Mode Tooltip Overrides */
+html.light .apexcharts-tooltip {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+    color: #0f172a !important;
+}
+html.light .apexcharts-tooltip-title {
+    background: #f1f5f9 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    font-weight: bold !important;
+}
+html.light .apexcharts-xaxistooltip {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+}
+html.light .apexcharts-gridline,
+html.light .apexcharts-grid-horz,
+html.light .apexcharts-grid-vert {
+    stroke: #e2e8f0 !important;
+}
+
+/* Protected Dark Sidebar Children (Preserves premium visual contrast) */
+html.light #sidebar-container .bg-slate-900,
+html.light #sidebar-container .bg-slate-900\/50,
+html.light #sidebar-container .bg-slate-950,
+html.light #sidebar-container .bg-slate-950\/50 {
+    background-color: #030712 !important;
+    border-color: #1e293b !important;
+}
+html.light #sidebar-container .hover\:bg-slate-800\/40:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+html.light #sidebar-container .text-slate-400 {
+    color: #94a3b8 !important;
+}
+
+/* Dynamic Interactive Controls & Inputs */
+html.light input[type="range"] {
+    background-color: #cbd5e1 !important;
+    border-color: #cbd5e1 !important;
+}
+
+/* Slate Secondary Background & Hover Overrides */
+html.light .bg-slate-800 {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+html.light .bg-slate-900\/20,
+html.light .bg-slate-900\/30,
+html.light .bg-slate-900\/40 {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+}
+html.light .hover\:bg-slate-800:hover,
+html.light .bg-slate-800:hover,
+html.light .bg-slate-900\/20:hover,
+html.light .bg-slate-900\/30:hover,
+html.light .bg-slate-900\/40:hover,
+html.light [data-lead-id]:hover,
+html.light [data-coll-item-id]:hover,
+html.light [data-lead-kyc-id]:hover {
+    background-color: #e2e8f0 !important;
+}
+
+/* High Contrast Active Selection States in Lists */
+html.light [data-lead-id].bg-slate-900 {
+    background-color: #cbd5e1 !important;
+    border-left-color: #0891b2 !important;
+}
+html.light [data-coll-item-id].bg-slate-900 {
+    background-color: #cbd5e1 !important;
+    border-color: #0891b2 !important;
+}
+html.light [data-lead-kyc-id].bg-slate-900 {
+    background-color: #cbd5e1 !important;
+    border-color: #0891b2 !important;
+}
+html.light [data-case-item-id].bg-slate-900 {
+    background-color: #cbd5e1 !important;
+    border-left-color: #0891b2 !important;
+}
+
+/* Rebranded Premium Custom Colors & Accents Overrides */
+html.light .text-cyan-500 {
+    color: #0891b2 !important;
+}
+html.light .text-teal-500 {
+    color: #0d9488 !important;
+}
+html.light .text-green-500 {
+    color: #16a34a !important;
+}
+html.light .text-red-500 {
+    color: #dc2626 !important;
+}
+html.light .text-blue-500 {
+    color: #2563eb !important;
+}
+html.light .text-indigo-500 {
+    color: #4f46e5 !important;
+}
+html.light .text-emerald-400,
+html.light .text-emerald-500 {
+    color: #059669 !important;
+}
+html.light .text-violet-400,
+html.light .text-violet-500 {
+    color: #7c3aed !important;
+}
+
+/* Soft Premium Pastel Badges with rich readable text */
+html.light .bg-blue-950,
+html.light .bg-blue-500/10 {
+    background-color: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border-color: #bfdbfe !important;
+}
+
+/* Light Status Badge Border Contrast Fixes */
+html.light .border-green-800,
+html.light .border-green-900\/30 {
+    border-color: #bbf7d0 !important;
+}
+html.light .border-red-800,
+html.light .border-red-900\/30 {
+    border-color: #fecaca !important;
+}
+html.light .border-blue-800 {
+    border-color: #bfdbfe !important;
+}
+html.light .border-cyan-800,
+html.light .border-cyan-900\/30 {
+    border-color: #cffafe !important;
+}
+
+/* Legible Text Color Accent Overrides */
+html.light .text-blue-400 {
+    color: #2563eb !important;
+}
+html.light .text-yellow-400 {
+    color: #d97706 !important;
+}
+
+/* Checked form matrix inputs legibility */
+html.light input[type="checkbox"] {
+    accent-color: #0891b2 !important;
+}
+
+/* Translucent panel highlights and overlays (e.g. in reports, legal and user_mgmt) */
+html.light .bg-slate-950\/10,
+html.light .bg-slate-950\/20,
+html.light .bg-slate-950\/30,
+html.light .bg-slate-950\/40,
+html.light .bg-slate-950\/50,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/60 {
+    background-color: rgba(240, 244, 248, 0.6) !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Chat bubble translucent red contrast override for customer dialogs */
+html.light .bg-red-950\/40 {
+    background-color: #fef2f2 !important;
+    color: #dc2626 !important;
+    border-color: #fecaca !important;
+}
+
+/* Light Scrollbar Overrides */
+html.light ::-webkit-scrollbar-track {
+    background: #f1f5f9 !important;
+}
+html.light ::-webkit-scrollbar-thumb {
+    background: #cbd5e1 !important;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8 !important;
+}
+
